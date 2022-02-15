@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { StatusCodes } = require('http-status-codes');
-const { AES } = require('crypto-js');
+const { AES, enc } = require('crypto-js');
 const jwt = require('jsonwebtoken');
 const CustomError = require('../../helpers/CustomError');
 const userModel = require('../../models/user');
@@ -8,7 +8,7 @@ const userModel = require('../../models/user');
 const { JWT_SECRET, PASSWORD_INCRYPT_SECRET } = process.env;
 
 const decryptPassword = (password) => {
-  const decryptedPassword = AES.decrypt(password, PASSWORD_INCRYPT_SECRET).toString();
+  const decryptedPassword = AES.decrypt(password, PASSWORD_INCRYPT_SECRET).toString(enc.Utf8);
 
   return decryptedPassword;
 };
