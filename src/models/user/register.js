@@ -16,8 +16,8 @@ const register = async (user) => {
 
     return newUser;
   } catch (error) {
-    console.log(error);
+    return error;
   }
-}
+};
 
 module.exports = register;
