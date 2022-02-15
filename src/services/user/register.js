@@ -8,7 +8,7 @@ const CustomError = require('../../helpers/CustomError');
 const encryptPassword = (password) => {
   const { PASSWORD_INCRYPT_SECRET } = process.env;
 
-  const passEncrypted = AES.encrypt(password, PASSWORD_INCRYPT_SECRET);
+  const passEncrypted = AES.encrypt(password, PASSWORD_INCRYPT_SECRET).toString();
 
   return passEncrypted;
 };
