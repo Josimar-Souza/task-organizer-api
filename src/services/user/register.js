@@ -5,12 +5,12 @@ const userModel = require('../../models/user');
 const registerValidation = require('../../validations/user/registerValidation');
 const CustomError = require('../../helpers/CustomError');
 
-const passwordIncrypt = (password) => {
+const encryptPassword = (password) => {
   const { PASSWORD_INCRYPT_SECRET } = process.env;
 
-  const passIncrypted = AES.encrypt(password, PASSWORD_INCRYPT_SECRET);
+  const passEncrypted = AES.encrypt(password, PASSWORD_INCRYPT_SECRET);
 
-  return passIncrypted;
+  return passEncrypted;
 };
 
 const register = async (user) => {
@@ -27,7 +27,7 @@ const register = async (user) => {
 
     const incryptedUserPassword = {
       ...rest,
-      password: passwordIncrypt(password),
+      password: encryptPassword(password),
     };
 
     const newUser = await userModel.register(incryptedUserPassword);
