@@ -13,6 +13,16 @@ const encryptPassword = (password) => {
   return passEncrypted;
 };
 
+const checkUserExistence = async (email) => {
+  const user = await userModel.findUserByEmail(email);
+
+  if (!user) {
+    return false;
+  }
+
+  return true;
+};
+
 const register = async (user) => {
   let newUser;
 
@@ -25,14 +35,25 @@ const register = async (user) => {
       return error;
     }
 
-    const { password, ...rest } = user;
+    const { password, email, ...rest } = user;
+
+    const userExist = await checkUserExistence(email);
+
+    if (userExist) {
+      const error = new CustomError('User already registered', StatusCodes.CONFLICT);
+      return error;
+    }
 
     const incryptedUserPassword = {
       ...rest,
+      email,
       password: encryptPassword(password),
     };
 
-    newUser = await userModel.register(incryptedUserPassword);
+    const userRegistered = await userModel.register(incryptedUserPassword);
+
+    const { password: newPassword, ...newUserRest } = userRegistered;
+    newUser = newUserRest;
   } catch (error) {
     console.log(error);
   }
