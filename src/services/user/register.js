@@ -14,6 +14,8 @@ const encryptPassword = (password) => {
 };
 
 const register = async (user) => {
+  let newUser;
+
   try {
     const validStatus = registerValidation(user);
 
@@ -30,12 +32,12 @@ const register = async (user) => {
       password: encryptPassword(password),
     };
 
-    const newUser = await userModel.register(incryptedUserPassword);
-
-    return newUser;
+    newUser = await userModel.register(incryptedUserPassword);
   } catch (error) {
-    return error;
+    console.log(error);
   }
+
+  return newUser;
 };
 
 module.exports = register;
