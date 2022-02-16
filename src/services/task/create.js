@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const taskModel = require('../../models/task');
-const taskValidation = require('../../validations/task/createTaskValidation');
+const taskValidation = require('../../validations/task/taskValidation');
 const CustomError = require('../../helpers/CustomError');
 
 const create = async (task, userId) => {
