@@ -9,7 +9,7 @@ const getAllUserTasks = async (userId) => {
   try {
     const db = await mongoConnect();
 
-    tasks = await db.collection(MONGO_TASK_COLLECTION).findAll({ userId }).toArray();
+    tasks = await db.collection(MONGO_TASK_COLLECTION).find({ userId }).toArray();
   } catch (error) {
     console.log(error);
   }
