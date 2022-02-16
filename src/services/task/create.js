@@ -3,7 +3,7 @@ const taskModel = require('../../models/task');
 const taskValidation = require('../../validations/task/createTaskValidation');
 const CustomError = require('../../helpers/CustomError');
 
-const create = async (task) => {
+const create = async (task, userId) => {
   let newTask;
 
   try {
@@ -15,7 +15,12 @@ const create = async (task) => {
       return error;
     }
 
-    newTask = await taskModel.create(task);
+    const taskToCreate = {
+      ...task,
+      userId,
+    };
+
+    newTask = await taskModel.create(taskToCreate);
   } catch (error) {
     console.log(error);
   }
