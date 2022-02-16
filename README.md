@@ -95,7 +95,7 @@
 
 <h3><code>POST</code>: /tasks</h3>
 <p>Cria uma nova tarefa.</p>
-<p><strong>É necessário estar logado para realizar essa requisição, enviando uma <code>token</code> nos headers dessa requisição com a chave <code>authorization</code></strong></p>
+<p><strong>É necessário estar logado para realizar essa requisição, enviando um <code>token</code> nos headers dessa requisição com a chave <code>authorization</code></strong></p>
 <p>Possivéis respostas.</p>
 
 ----
@@ -166,7 +166,7 @@
 
 <h3><code>DELETE</code>: /tasks/:id</h3>
 <p>Deleta uma tarefa identificada pelo seu id.</p>
-<p><strong>É necessário estar logado para realizar essa requisição, enviando uma <code>token</code> nos headers dessa requisição com a chave <code>authorization</code></strong></p>
+<p><strong>É necessário estar logado para realizar essa requisição, enviando um <code>token</code> nos headers dessa requisição com a chave <code>authorization</code></strong></p>
 <p>Possivéis respostas.</p>
 
 ----
@@ -223,7 +223,7 @@
 
 <h3><code>PUT</code>: /tasks/:id</h3>
 <p>Atualiza uma tarefa identificada pelo seu id</p>
-<p><strong>É necessário estar logado para realizar essa requisição, enviando uma <code>token</code> nos headers dessa requisição com a chave <code>authorization</code></strong></p>
+<p><strong>É necessário estar logado para realizar essa requisição, enviando um <code>token</code> nos headers dessa requisição com a chave <code>authorization</code></strong></p>
 <p>Possivéis respostas</p>
 
 ----
@@ -301,7 +301,7 @@
 
 <h3><code>GET</code>: /tasks</h3>
 <p>Retorna todas as tarefas de um usuário</p>
-<p><strong>É necessário estar logado para realizar essa requisição, enviando uma <code>token</code> nos headers dessa requisição com a chave <code>authorization</code></strong></p>
+<p><strong>É necessário estar logado para realizar essa requisição, enviando um <code>token</code> nos headers dessa requisição com a chave <code>authorization</code></strong></p>
 <p>Possivéis respostas</p>
 
 ----
