@@ -12,7 +12,7 @@ const updateById = async (id, newValues) => {
 
     await db.collection(MONGO_TASK_COLLECTION).updateOne(
       { _id: ObjectId(id) },
-      { newValues },
+      { $set: newValues },
     );
 
     updatedTask = {
